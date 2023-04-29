@@ -1,13 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
+      <ion-title size="large">Get strt</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="header">
+    <ion-title class="title" size="large">Get Started</ion-title>
+    <p class="subtitle">By creating an account</p>
+  </div>
+
+  <div class="ion-padding">
+    <ion-input class="input" placeholder="Fullname" />
+    <ion-input class="input" placeholder="email" />
+    <ion-input class="input" placeholder="password" />
+    <ion-input class="input" placeholder="contact" />
+  </div>
+  <ion-fab horizontal="end">
+    <ion-fab-button >
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class="loginLink">
+    <p class="p">Already a memember?</p><ion-button fill="clear">Log in</ion-button>
+
+  </div>
 </ion-content>
