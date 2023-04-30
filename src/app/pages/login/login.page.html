@@ -1,24 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-title size="large">Welcome Back</ion-title>
+<div class="header">
+  <ion-title class="title" size="large">Welcome Back</ion-title>
+  <p class="subtitle">Sign in to access your account</p>
+</div>
 
   <div class="ion-padding">
-    <ion-text>Username</ion-text>
-    <ion-input class="input"/>
+    <ion-item>
+      <ion-input placeholder="username" class="input" />
+      <ion-icon name="person-outline"></ion-icon>
 
-    <ion-text>Password</ion-text>
-    <ion-input class="input"/>
-  
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="password" class="input" />
+
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </ion-item>
+    <div class="signupLink" > 
+      <p class="p">New memember?  <a [routerLink]="['/login']" style="color: #FFC33F" >SignUp now</a></p>
+    </div>
   </div>
- 
+ <ion-fab horizontal="end">
+    <ion-fab-button [routerLink]="['/home']"  >
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -1,7 +1,38 @@
+
 .input{
-    border: 1px solid #dedede;
-    // padding: 16px;
-    // margin: 16px;
+    font-weight: 300;
+}
+ion-item {
+    --background: #f1f1f1;
+    border-radius: 10px;
     margin-bottom: 16px;
 }
+.header{
+    margin-top: 100px;
+    margin-bottom: 80px;
+    text-align: center;
 
+    .subtitle{
+        color: gray;
+        font-size: 0.9rem;
+    }
+    .title{
+        font-size: 2rem;
+    }
+}
+.signupLink{
+    display: flex;
+    text-align: center;
+    // transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+//   margin: auto;  111
+    .p{
+        font-size: 0.9em;
+    }
+    a {
+        text-decoration: none;
+      }
+}
