@@ -22,12 +22,14 @@ ion-item {
 }
 .loginLink{
     display: flex;
-    text-align: center;
+   justify-content: center;
+   margin: auto;
     // transform: translateY(-50%);
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 80%;
 //   margin: auto;  111
     .p{
         font-size: 0.9em;

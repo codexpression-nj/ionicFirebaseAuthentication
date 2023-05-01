@@ -22,13 +22,15 @@ ion-item {
 }
 .signupLink{
     display: flex;
-    text-align: center;
-    // transform: translateY(-50%);
+    margin: auto;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-//   margin: auto;  111
+  width: 80%;
     .p{
         font-size: 0.9em;
     }
