@@ -15,10 +15,14 @@
       <ion-input placeholder="password" class="input" />
 
       <ion-icon name="lock-closed-outline"></ion-icon>
+    
     </ion-item>
-    <div class="signupLink" > 
-      <p class="p">New memember?  <a [routerLink]="['/signup']" style="color: #FFC33F" >SignUp now</a></p>
+    <div class="forgotpassword" > 
+       <a [routerLink]="['/forgot-password']" style="color: #FFC33F" >Forgot Password?</a>
     </div>
+  </div>
+  <div class="signupLink" > 
+    <p class="p">New memember?  <a [routerLink]="['/signup']" style="color: #FFC33F" >SignUp now</a></p>
   </div>
  <ion-fab horizontal="end">
     <ion-fab-button [routerLink]="['/home']"  >
