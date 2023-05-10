@@ -5,5 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class AuthServiceService {
 
-  constructor() { }
+  constructor() {
+
+ 
+   }
+
+   registerUser(){
+      
+   }
+
+   loginUser(){
+
+   }
+
+   resetPassword(){}
+   
 }
