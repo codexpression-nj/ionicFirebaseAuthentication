@@ -12,14 +12,17 @@ export class AuthServiceService {
    }
 
    registerUser(email:string,password:string){
+    return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
+
+   }
+
+   loginUser(email:string,password:string){
     return this.ngFireAuth.signInWithEmailAndPassword(email, password);
 
    }
 
-   loginUser(email:string){
-
+   resetPassword(){
+    
    }
-
-   resetPassword(){}
    
 }
