@@ -21,8 +21,8 @@ export class AuthServiceService {
 
    }
 
-   resetPassword(){
-    
+   resetPassword(email:string){
+      this.ngFireAuth.sendPasswordResetEmail(email);
    }
    
 }
