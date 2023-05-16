@@ -11,6 +11,7 @@ export class LoginPage implements OnInit {
   
   email:any
   password:any
+  contact:any
 
   constructor(private authService:AuthServiceService,private router: Router) { }
 
