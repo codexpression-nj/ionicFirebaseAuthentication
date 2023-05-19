@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { async } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class AuthServiceService {
 
    resetPassword(email:string){
       this.ngFireAuth.sendPasswordResetEmail(email);
+   }
+
+   signOut(){
+    return  this.ngFireAuth.signOut();
    }
    
 }
