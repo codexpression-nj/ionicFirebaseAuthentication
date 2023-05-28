@@ -24,10 +24,13 @@ export class AuthServiceService {
 
    resetPassword(email:string){
       this.ngFireAuth.sendPasswordResetEmail(email);
+  
    }
 
    signOut(){
     return  this.ngFireAuth.signOut();
    }
+
+
    
 }
