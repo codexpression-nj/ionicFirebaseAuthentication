@@ -10,7 +10,7 @@ export const environment = {
     projectId: "auth-test-7b9fb",
     storageBucket: "auth-test-7b9fb.appspot.com",
     messagingSenderId: "909454782709",
-    appId: "",
+    appId: "1:909454782709:web:70ca68de07cf04e84fd5bc",
     measurementId: "G-8TMKGEFEKD"
   }
 };

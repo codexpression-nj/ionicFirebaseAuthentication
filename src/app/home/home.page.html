@@ -2,21 +2,15 @@
   <ion-toolbar>
     <ion-title>
       Blank
+      <ion-button (click)="signOut()">Sign Out</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-      <ion-button (click)="signOut()">Sign Out</ion-button>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h1>HI</h1>
+    <strong>{{email}}</strong>
   </div>
 </ion-content>
   

@@ -20,6 +20,8 @@ export class LoginPage implements OnInit {
   }
 
   login(){
+    console.log(this.email + this.password);
+    
     this.authService.loginUser(this.email,this.password).then((resp)=>{
      
         if(resp.user){

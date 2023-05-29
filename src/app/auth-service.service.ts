@@ -26,6 +26,9 @@ export class AuthServiceService {
       this.ngFireAuth.sendPasswordResetEmail(email);
   
    }
+   getProfile(){
+    return this.ngFireAuth.currentUser
+   }
 
    signOut(){
     return  this.ngFireAuth.signOut();
