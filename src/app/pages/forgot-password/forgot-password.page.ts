@@ -14,7 +14,9 @@ email:any
   }
 
   reset(){
-    this.authService.resetPassword(this.email);
+    this.authService.resetPassword(this.email).then( () =>{      
+      console.log('sent'); //show confirmation dialog
+    })
   }
 
 }

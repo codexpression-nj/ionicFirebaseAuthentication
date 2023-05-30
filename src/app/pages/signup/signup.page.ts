@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { log } from 'console';
 import { AuthServiceService } from 'src/app/auth-service.service';
 
@@ -10,7 +11,7 @@ import { AuthServiceService } from 'src/app/auth-service.service';
 export class SignupPage implements OnInit {
   password:any
   email:any
-  constructor(private authService:AuthServiceService) { 
+  constructor(private authService:AuthServiceService,private router: Router) { 
 
   }
 
@@ -22,7 +23,9 @@ export class SignupPage implements OnInit {
     
     this.authService.registerUser(email,password).then((res)=>{
       console.log(res);
-      
+      if(res.user){
+        this.router.navigate(['/home']);
+      }
     })
   }
 
