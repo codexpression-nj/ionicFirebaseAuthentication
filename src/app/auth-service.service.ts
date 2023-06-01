@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { async } from 'rxjs';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,19 @@ export class AuthServiceService {
    signOut(){
     return  this.ngFireAuth.signOut();
    }
+
+   async signInWithPhoneNumber(phoneNumber: string) {
+    const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    const confirmationResult = await this.ngFireAuth.signInWithPhoneNumber(phoneNumber, appVerifier);
+    
+    const verificationCode = window.prompt('Enter the verification code');
+    
+    if (verificationCode) {
+      const userCredential = await confirmationResult.confirm(verificationCode);
+      // User is now signed in
+      console.log(userCredential.user);
+    }
+  }
 
 
    

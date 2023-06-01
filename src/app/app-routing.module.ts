@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'landing',
     loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)
   },
+  {
+    path: 'confirmation',
+    loadChildren: () => import('./pages/confirmation/confirmation.module').then( m => m.ConfirmationPageModule)
+  },
 ];
 
 @NgModule({
