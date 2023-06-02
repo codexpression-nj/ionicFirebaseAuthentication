@@ -11,6 +11,7 @@ import { AuthServiceService } from 'src/app/auth-service.service';
 export class SignupPage implements OnInit {
   password:any
   email:any
+  contact:any
   constructor(private authService:AuthServiceService,private router: Router) { 
 
   }
@@ -27,6 +28,10 @@ export class SignupPage implements OnInit {
         this.router.navigate(['/home']);
       }
     })
+  }
+  signUpUsingPhonenumber(contact:string){
+    
+    this.authService.signInWithPhoneNumber(contact)
   }
 
 }

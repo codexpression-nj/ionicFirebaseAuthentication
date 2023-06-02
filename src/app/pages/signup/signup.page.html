@@ -26,21 +26,23 @@
     <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
     </ion-item>
     <ion-item>
-    <ion-input class="input" #contact placeholder="contact" />
+    <ion-input class="input"  placeholder="contact" />
       <ion-icon slot="end" name="call-outline"></ion-icon>
     </ion-item>
     <p>Or</p>
     <ion-item>
-    <ion-input class="input"  placeholder="contact" />
+    <ion-input class="input" [(ngModel)]="contact" placeholder="contact" />
     <ion-icon slot="end" name="call-outline"></ion-icon>
   </ion-item>
+  <div id="recaptcha-container"></div>
+
     <div class="loginLink" > 
       <p class="p">Already a memember? <a [routerLink]="['/login']" style="color: #FFC33F" >Log in</a></p>
     </div>
   </div>
  
   <ion-fab  vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-    <ion-fab-button  (click)="signUP(email,password)" >
+    <ion-fab-button  (click)="signUpUsingPhonenumber(contact)" >
       <ion-icon name="chevron-forward"></ion-icon>
     </ion-fab-button>
   </ion-fab>
