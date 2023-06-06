@@ -12,6 +12,7 @@ export class SignupPage implements OnInit {
   password:any
   email:any
   contact:any
+  fullname:any
   constructor(private authService:AuthServiceService,private router: Router) { 
 
   }
@@ -19,10 +20,10 @@ export class SignupPage implements OnInit {
   ngOnInit() {
     // this.signUP()
   }
-  signUP(email:string,password:string){
+  signUP(email:string,password:string,fullname:string){
     console.log(email);
     
-    this.authService.registerUser(email,password).then((res)=>{
+    this.authService.registerUser(email,password,fullname).then((res)=>{
       console.log(res);
       if(res.user){
         this.router.navigate(['/home']);

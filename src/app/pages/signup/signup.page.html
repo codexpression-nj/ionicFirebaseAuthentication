@@ -14,7 +14,7 @@
 
   <div class="ion-padding">
     <ion-item >
-      <ion-input class="input" placeholder="Fullname" />
+      <ion-input class="input" [(ngModel)]="fullname" placeholder="Fullname" />
       <ion-icon slot="end" name="person-outline"></ion-icon>
     </ion-item>
     <ion-item>
@@ -42,7 +42,7 @@
   </div>
  
   <ion-fab  vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-    <ion-fab-button  (click)="signUpUsingPhonenumber(contact)" >
+    <ion-fab-button  (click)="signUP(email,password,fullname)" >
       <ion-icon name="chevron-forward"></ion-icon>
     </ion-fab-button>
   </ion-fab>
