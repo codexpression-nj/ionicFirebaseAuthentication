@@ -1,9 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title slot="start">
       Blank
-      <ion-button (click)="signOut()">Sign Out</ion-button>
     </ion-title>
+    <ion-button slot="end" fill="clear" (click)="signOut()">Sign Out</ion-button>
+
   </ion-toolbar>
 </ion-header>
 

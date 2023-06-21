@@ -22,7 +22,6 @@ export class AuthServiceService {
 
   constructor(public ngFireAuth: AngularFireAuth) {
 
- 
    }
 
    async registerUser(email:string,password:string,name:string){
