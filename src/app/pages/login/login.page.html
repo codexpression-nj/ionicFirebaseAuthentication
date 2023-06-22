@@ -1,39 +1,53 @@
 <ion-content [fullscreen]="true">
-<div class="header">
-  <ion-title class="title" size="large">Welcome Back</ion-title>
-  <p class="subtitle">Sign in to access your account</p>
-</div>
+  <div class="header">
+    <ion-title class="title" size="large">Welcome Back</ion-title>
+    <p class="subtitle">Sign in to access your account</p>
+  </div>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="ion-padding">
 
-  <div class="ion-padding">
-    <ion-item>
-      <ion-input placeholder="username" [(ngModel)]="email" class="input" />
-      <ion-icon name="person-outline"></ion-icon>
-    </ion-item>
+      <ion-item>
+        <ion-input placeholder="username" formControlName="email" class="input" />
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="this.ionicForm.controls?.['email'].touched && this.ionicForm.controls?.['email'].invalid">
+        <div class="error ion-padding" *ngIf="errorControl.email.errors?.required">
+          <ion-text color="danger">Email is required.</ion-text>
+        </div>
+        <div class="ion-padding" *ngIf="errorControl.email.errors?.pattern">
+          <ion-text color="danger">Please provide valid email.</ion-text>
+        </div>
+      </div>
 
-    <ion-item>
-      <ion-input type="password" placeholder="password" [(ngModel)]="password" class="input" />
-      <ion-icon name="lock-closed-outline"></ion-icon>
-    </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="password" formControlName="password" class="input" />
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">
+        <div class="error ion-padding" *ngIf="errorControl.password.errors?.required">
+          <ion-text color="danger">password is required.</ion-text>
+        </div>
+        <div class="ion-padding" *ngIf="errorControl.password.errors?.pattern">
+          <ion-text color="danger">Password Must contain at least one character</ion-text>
+        </div>
+      </div>
+    
 
-    <div class="forgotpassword" > 
-       <a [routerLink]="['/forgot-password']" style="color: #FFC33F" >Forgot Password?</a>
+
+
+      <div class="forgotpassword">
+        <a [routerLink]="['/forgot-password']" style="color: #FFC33F">Forgot Password?</a>
+      </div>
+
+    </div>
+    <div class="signupLink">
+      <p class="p">New memember? <a [routerLink]="['/signup']" style="color: #FFC33F">SignUp now</a></p>
     </div>
 
-    <!-- <p>or</p>
-
-    <ion-item>
-      <ion-input placeholder="password" [(ngModel)]="contact" class="input" />
-      <ion-icon name="lock-closed-outline"></ion-icon>
-    </ion-item> -->
-
-  </div>
-  <div class="signupLink" > 
-    <p class="p">New memember?  <a [routerLink]="['/signup']" style="color: #FFC33F" >SignUp now</a></p>
-  </div>
-  
- <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-    <ion-fab-button (click)="login()" >
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+      <ion-fab-button type="submit" (click)="submitForm()" >
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
 </ion-content>
