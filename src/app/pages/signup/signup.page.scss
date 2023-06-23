@@ -47,4 +47,9 @@ ion-item {
     top: 50%;
     transform: translateY(-50%);
   }
-  
+  .errorInput{
+    color: red;
+    font-weight: 300;
+    font-size: small;
+    padding-top: -16px;
+}

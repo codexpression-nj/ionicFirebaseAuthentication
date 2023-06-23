@@ -1,5 +1,3 @@
-
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -11,42 +9,66 @@
     <ion-title class="title" size="large">Get Started</ion-title>
     <p class="subtitle">By creating an account</p>
   </div>
-
-  <div class="ion-padding">
-    <ion-item >
-      <ion-input class="input" [(ngModel)]="fullname" placeholder="Fullname" />
-      <ion-icon slot="end" name="person-outline"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-input class="input"  [(ngModel)]="email"  placeholder="email" />
-      <ion-icon slot="end"  name="mail-outline"></ion-icon>
-    </ion-item>
-    <ion-item>
-    <ion-input class="input" [(ngModel)]="password"  placeholder="password" />
-    <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
-    </ion-item>
-    <ion-item>
-    <ion-input class="input"  placeholder="contact" />
-      <ion-icon slot="end" name="call-outline"></ion-icon>
-    </ion-item>
-    <!-- <p>Or</p>
+  <form [formGroup]="ionicForm" novalidate>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input class="input" formControlName="fullname" placeholder="Fullname" />
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.ionicForm.controls?.['fullname'].touched && this.ionicForm.controls?.['fullname'].invalid">
+        <ion-text *ngIf="errorControl.fullname.errors?.required" class="errorInput" color="danger">Fullname is
+          required.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" formControlName="email" placeholder="email" />
+        <ion-icon slot="end" name="mail-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.ionicForm.controls?.['email'].touched && this.ionicForm.controls?.['email'].invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required" class="errorInput" color="danger">Email is
+          required.</ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Please provide valid
+          email.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" formControlName="password" placeholder="password" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required" class="errorInput" color="danger">Password is
+          required.</ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.pattern" class="errorInput" color="danger">Password Must contain
+          at least one character.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" formControlName="contact" placeholder="contact" />
+        <ion-icon slot="end" name="call-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.ionicForm.controls?.['contact'].touched && this.ionicForm.controls?.['contact'].invalid">
+        <ion-text *ngIf="errorControl.contact.errors?.required" class="errorInput" color="danger">Contact is
+          required..</ion-text>
+      </div>
+      <!-- <p>Or</p>
     <ion-item>
     <ion-input class="input" [(ngModel)]="contact" placeholder="contact" />
     <ion-icon slot="end" name="call-outline"></ion-icon>
   </ion-item>
   <div id="recaptcha-container"></div> -->
 
-    <div class="loginLink" > 
-      <p class="p">Already a memember? <a [routerLink]="['/login']" style="color: #FFC33F" >Log in</a></p>
+      <div class="loginLink">
+        <p class="p">Already a memember? <a [routerLink]="['/login']" style="color: #FFC33F">Log in</a></p>
+      </div>
     </div>
-  </div>
- 
-  <ion-fab  vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-    <ion-fab-button  (click)="signUP(email,password,fullname)" >
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  
 
-  
+    <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+      <ion-fab-button (click)="signUP()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
 </ion-content>

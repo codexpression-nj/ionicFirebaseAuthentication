@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { log } from 'console';
 import { AuthServiceService } from 'src/app/auth-service.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,26 +9,48 @@ import { AuthServiceService } from 'src/app/auth-service.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  password:any
-  email:any
-  contact:any
-  fullname:any
-  constructor(private authService:AuthServiceService,private router: Router) { 
+  ionicForm: FormGroup;
+
+
+  constructor(private authService:AuthServiceService,private router: Router, public formBuilder: FormBuilder) { 
 
   }
 
   ngOnInit() {
     // this.signUP()
+    this.ionicForm = this.formBuilder.group({
+      fullname:['',
+        [Validators.required]
+      ],
+      contact:['',
+      [Validators.required]
+    ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+        ],
+      ],
+      password: ['', [
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
+        Validators.required,
+      ],
+    ],
+    });
   }
-  signUP(email:string,password:string,fullname:string){
-    console.log(email);
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
+  signUP(){
+    console.log();
     
-    this.authService.registerUser(email,password,fullname).then((res)=>{
-      console.log(res);
-      if(res.user){
-        this.router.navigate(['/home']);
-      }
-    })
+    // this.authService.registerUser(email,password,fullname).then((res)=>{
+    //   console.log(res);
+    //   if(res.user){
+    //     this.router.navigate(['/home']);
+    //   }
+    // })
   }
   signUpUsingPhonenumber(contact:string){
     
