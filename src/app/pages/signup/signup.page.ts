@@ -23,7 +23,12 @@ export class SignupPage implements OnInit {
         [Validators.required]
       ],
       contact:['',
-      [Validators.required]
+      [
+        Validators.required,
+        Validators.pattern("^[0-9]*$"),
+        Validators.minLength(10),
+        // Validators.min(10)
+      ]
     ],
       email: [
         '',
@@ -42,6 +47,7 @@ export class SignupPage implements OnInit {
   get errorControl() {
     return this.ionicForm.controls;
   }
+ 
   signUP(){
     console.log();
     

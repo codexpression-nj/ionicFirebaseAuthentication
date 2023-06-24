@@ -11,7 +11,7 @@
   </div>
   <form [formGroup]="ionicForm" novalidate>
     <div class="ion-padding">
-      <ion-item>
+      <ion-item >
         <ion-input class="input" formControlName="fullname" placeholder="Fullname" />
         <ion-icon slot="end" name="person-outline"></ion-icon>
       </ion-item>
@@ -32,7 +32,7 @@
           email.</ion-text>
       </div>
       <ion-item>
-        <ion-input class="input" formControlName="password" placeholder="password" />
+        <ion-input class="input" type="password" formControlName="password" placeholder="password" />
         <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
       </ion-item>
       <div style="padding-top: -26px;padding-bottom: 16px;"
@@ -43,14 +43,17 @@
           at least one character.</ion-text>
       </div>
       <ion-item>
-        <ion-input class="input" formControlName="contact" placeholder="contact" />
+        <ion-input class="input" type="numeric" formControlName="contact" placeholder="contact" />
         <ion-icon slot="end" name="call-outline"></ion-icon>
       </ion-item>
       <div style="padding-top: -26px;padding-bottom: 16px;"
         *ngIf="this.ionicForm.controls?.['contact'].touched && this.ionicForm.controls?.['contact'].invalid">
         <ion-text *ngIf="errorControl.contact.errors?.required" class="errorInput" color="danger">Contact is
           required..</ion-text>
-      </div>
+          <ion-text *ngIf="errorControl.contact.errors?.pattern" class="errorInput" color="danger">Contact should contain only numbers..</ion-text>
+          <ion-text *ngIf="errorControl.contact.errors?.minlength" class="errorInput" color="danger">Contact should be less than 10 digit..</ion-text>
+    
+        </div>
       <!-- <p>Or</p>
     <ion-item>
     <ion-input class="input" [(ngModel)]="contact" placeholder="contact" />

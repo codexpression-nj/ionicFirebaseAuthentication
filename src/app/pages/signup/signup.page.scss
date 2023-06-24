@@ -52,4 +52,19 @@ ion-item {
     font-weight: 300;
     font-size: small;
     padding-top: -16px;
+    display: flex;
+    // al;
+    ion-item {
+        --background: red !important;
+        // border-radius: 10px;
+        // margin-bottom: 16px;
+    }
+}
+
+.invalid{
+    ion-item {
+        --background: red !important;
+        // border-radius: 10px;
+        // margin-bottom: 16px;
+    }
 }

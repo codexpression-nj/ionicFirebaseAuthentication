@@ -3,7 +3,7 @@
     <ion-title class="title" size="large">Welcome Back</ion-title>
     <p class="subtitle">Sign in to access your account</p>
   </div>
-  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="ionicForm"  novalidate>
     <div class="ion-padding">
 
       <ion-item>
@@ -35,7 +35,7 @@
     </div>
 
     <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-      <ion-fab-button  type="submit" (click)="submitForm()" >
+      <ion-fab-button  type="submit" (click)="login()" >
         <ion-icon name="chevron-forward"></ion-icon>
       </ion-fab-button>
     </ion-fab>

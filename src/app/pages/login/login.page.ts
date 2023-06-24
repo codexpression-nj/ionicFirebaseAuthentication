@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/auth-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginPage implements OnInit {
   // password:any
   // contact:any
 
-  constructor(private authService: AuthServiceService, private router: Router, public formBuilder: FormBuilder) { }
+  constructor(private toastController: ToastController,private alertController: AlertController,private loadingController: LoadingController,private authService: AuthServiceService, private router: Router, public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
@@ -26,37 +28,51 @@ export class LoginPage implements OnInit {
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      password: ['n', [
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
+      password: ['', [
+        // Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
         Validators.required,
       ]
-    ],
+      ],
     });
   }
 
-  login() {
+  async login() {
+    const loading = await this.loadingController.create();
+		await loading.present();
     // console.log(this.email + this.password);
+    if (this.ionicForm.valid) {
+    
+      //  await  loading.dismiss();
+       const user = await this.authService.loginUser(this.ionicForm.value.email, this.ionicForm.value.password).catch((err) => {
+           this.presentToast(err)
+           console.log(err);
+           
+          loading.dismiss();
 
-    // this.authService.loginUser(this.email,this.password).then((resp)=>{
+       })
+       
+        
+      if (user) {
+        this.router.navigate(['/home'])
+      }
+    } else {
+      return console.log('Please provide all the required values!');
+    }
 
-    //     if(resp.user){
-    //       this.router.navigate(['/home'])
-    //     }
-
-    // })
   }
   get errorControl() {
     return this.ionicForm.controls;
   }
-  submitForm = () => {
-    if (this.ionicForm.valid) {
-      console.log("oh no");
 
-      console.log(this.ionicForm.value);
-      return false;
-    } else {
-      return console.log('Please provide all the required values!');
-    }
-  };
+  async presentToast(message: undefined) {
+    console.log(message);
+    
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+      position: 'top',
+    });
 
+    await toast.present();
+  }
 }
