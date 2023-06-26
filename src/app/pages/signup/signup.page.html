@@ -39,8 +39,11 @@
         *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">
         <ion-text *ngIf="errorControl.password.errors?.required" class="errorInput" color="danger">Password is
           required.</ion-text>
-        <ion-text *ngIf="errorControl.password.errors?.pattern" class="errorInput" color="danger">Password Must contain
-          at least one character.</ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.pattern" class="errorInput" color="danger">Password must be more than 8 length containing
+          at least one character.
+          at least one Capital letter.
+          at least one number.
+        </ion-text>
       </div>
       <ion-item>
         <ion-input class="input" type="numeric" formControlName="contact" placeholder="contact" />

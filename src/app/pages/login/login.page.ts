@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   // password:any
   // contact:any
 
-  constructor(private toastController: ToastController,private alertController: AlertController,private loadingController: LoadingController,private authService: AuthServiceService, private router: Router, public formBuilder: FormBuilder) { }
+  constructor(private toastController: ToastController, private alertController: AlertController, private loadingController: LoadingController, private authService: AuthServiceService, private router: Router, public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
@@ -38,21 +38,19 @@ export class LoginPage implements OnInit {
 
   async login() {
     const loading = await this.loadingController.create();
-		await loading.present();
+    await loading.present();
     // console.log(this.email + this.password);
     if (this.ionicForm.valid) {
-    
-      //  await  loading.dismiss();
-       const user = await this.authService.loginUser(this.ionicForm.value.email, this.ionicForm.value.password).catch((err) => {
-           this.presentToast(err)
-           console.log(err);
-           
-          loading.dismiss();
 
-       })
-       
-        
+      //  await  loading.dismiss();
+      const user = await this.authService.loginUser(this.ionicForm.value.email, this.ionicForm.value.password).catch((err) => {
+        this.presentToast(err)
+        console.log(err);
+        loading.dismiss();
+      })
+
       if (user) {
+        loading.dismiss();
         this.router.navigate(['/home'])
       }
     } else {
@@ -66,7 +64,7 @@ export class LoginPage implements OnInit {
 
   async presentToast(message: undefined) {
     console.log(message);
-    
+
     const toast = await this.toastController.create({
       message: message,
       duration: 1500,
