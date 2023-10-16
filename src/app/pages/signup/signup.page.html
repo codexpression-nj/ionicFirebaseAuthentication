@@ -57,12 +57,12 @@
           <ion-text *ngIf="errorControl.contact.errors?.minlength" class="errorInput" color="danger">Contact should be less than 10 digit..</ion-text>
     
         </div>
-      <!-- <p>Or</p>
-    <ion-item>
-    <ion-input class="input" [(ngModel)]="contact" placeholder="contact" />
-    <ion-icon slot="end" name="call-outline"></ion-icon>
-  </ion-item>
-  <div id="recaptcha-container"></div> -->
+      <p>Or</p>
+      
+    <ion-button color="light">
+      <ion-icon src="assets/icon/google.svg"></ion-icon>
+      <ion-text>Continue with Google</ion-text>
+    </ion-button>
 
       <div class="loginLink">
         <p class="p">Already a memember? <a [routerLink]="['/login']" style="color: #FFC33F">Log in</a></p>
