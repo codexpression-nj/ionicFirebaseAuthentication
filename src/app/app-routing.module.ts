@@ -35,6 +35,15 @@ const routes: Routes = [
     path: 'confirmation',
     loadChildren: () => import('./pages/confirmation/confirmation.module').then( m => m.ConfirmationPageModule)
   },
+  {
+    path: 'journals',
+    loadChildren: () => import('./pages/journals/journals.module').then( m => m.JournalsPageModule)
+  },
+  {
+    path: 'journal',
+    loadChildren: () => import('./pages/journal/journal.module').then( m => m.JournalPageModule)
+  },
+  
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 import { Router } from '@angular/router';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,25 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit{
   email :any
-  constructor(private authService:AuthServiceService,private router: Router) {}
+
+  constructor(private authService:AuthServiceService,private router: Router) {
+
+  }
   ngOnInit(): void {
-   
-    this.authService.getProfile().then((user) =>{
-        this.email = user?.email
-        console.log(user);
-        
-    })
+
+    this.authService.getProfile().then(user => {
+      this.email = user?.email;
+      console.log(user?.email);
+    }).catch(error => {
+      console.error('Error getting user profile:', error);
+    });
+    
   }
 
- signOut(){
+  
 
+
+ signOut(){
   this.authService.signOut().then(() =>{
     this.router.navigate(['/landing'])
   })

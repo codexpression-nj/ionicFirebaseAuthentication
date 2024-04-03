@@ -59,6 +59,7 @@
         </div>
       <p>Or</p>
       
+      
     <ion-button color="light" (click)='this.signUpWithGoogle()'>
       <ion-icon src="assets/icon/google.svg"></ion-icon>
       <ion-text>Continue with Google</ion-text>
@@ -69,12 +70,12 @@
       </div>
     </div>
 
-    <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-      <ion-fab-button (click)="signUP()">
-        <ion-icon name="chevron-forward"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+   
 
   </form>
-
+  <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+    <ion-fab-button (click)="signUP()">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

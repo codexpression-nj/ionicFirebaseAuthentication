@@ -51,7 +51,8 @@ export class LoginPage implements OnInit {
 
       if (user) {
         loading.dismiss();
-        this.router.navigate(['/home'])
+        this.router.navigate(
+          ['/journals'])
       }
     } else {
       return console.log('Please provide all the required values!');

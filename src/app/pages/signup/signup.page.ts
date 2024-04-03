@@ -13,7 +13,6 @@ import { ToastController } from '@ionic/angular';
 export class SignupPage implements OnInit {
   ionicForm: FormGroup;
 
-
   constructor(private toastController: ToastController,private loadingController: LoadingController,private authService:AuthServiceService,private router: Router, public formBuilder: FormBuilder) { 
 
   }
@@ -50,8 +49,13 @@ export class SignupPage implements OnInit {
     return this.ionicForm.controls;
   }
   async signUpWithGoogle(){
-    const user = await this.authService.GoogleAuth().then(()=>{
-      this.router.navigate(['/home'])
+    const loading = await this.loadingController.create();
+    // await loading.present();
+
+    const user = await this.authService.GoogleAuth().then((re)=>{
+      console.log(re);
+      
+      // this.router.navigate(['/home'])
     })
   }
  
@@ -74,10 +78,7 @@ export class SignupPage implements OnInit {
       return console.log('Please provide all the required values!');
     }
   }
-  signUpUsingPhonenumber(contact:string){
-    
-    this.authService.signInWithPhoneNumber(contact)
-  }
+  
   async presentToast(message: undefined) {
     console.log(message);
     
