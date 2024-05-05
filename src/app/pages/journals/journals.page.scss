@@ -9,7 +9,11 @@ ion-item {
 .title{
     font-weight: bold;
     color: black;
-    font-size: medium;
+    font-size: 10px;
+    display: -webkit-box;   
+    overflow: hidden; 
+    height: 30px;
+
 }
 
 .content {

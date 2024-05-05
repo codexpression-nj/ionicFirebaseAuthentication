@@ -29,17 +29,12 @@ export class JournalsPage implements OnInit {
 
 
   addJournal(){
-    const journalData =  new Journal(
-      '',
-      this.title,
-      this.note,
-      new Date(),
-    )
-    console.log(journalData);
-    
+       
       this.journalServive.addJournal(
         {userId:"", title:this.title,content:this.note,createdAt:new Date()}
       )?.then(async ()=>{
+        this.title =''
+        this.note = ''
         const toast = await this.toastCtrl.create({
           message: "Jounal added successful",
           duration:2000

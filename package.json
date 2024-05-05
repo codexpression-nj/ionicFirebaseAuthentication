@@ -1,6 +1,6 @@
 {
   "name": "firebaseAuthApp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -20,14 +20,10 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
-    "@capacitor/android": "^5.0.4",
-    "@capacitor/app": "4.1.1",
-    "@capacitor/core": "4.7.3",
-    "@capacitor/haptics": "4.1.0",
-    "@capacitor/keyboard": "4.1.1",
-    "@capacitor/status-bar": "4.1.1",
     "@ionic-native/core": "^5.36.0",
     "@ionic/angular": "^7.1.0",
+    "@ionic/cordova-builders": "^11.0.0",
+    "cordova-android": "10.1.2",
     "firebase": "^9.22.1",
     "ionicons": "^7.0.0",
     "rxjs": "~7.5.0",
@@ -45,7 +41,6 @@
     "@angular/compiler": "^15.0.0",
     "@angular/compiler-cli": "^15.0.0",
     "@angular/language-service": "^15.0.0",
-    "@capacitor/cli": "4.7.3",
     "@ionic/angular-toolkit": "^9.0.0",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^12.11.1",
@@ -64,7 +59,21 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ts-node": "~8.3.0",
-    "typescript": "~4.8.4"
+    "typescript": "~4.8.4",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-ionic-webview": "^5.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.0.5"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    }
+  }
 }

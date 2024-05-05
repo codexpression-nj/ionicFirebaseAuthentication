@@ -11,7 +11,7 @@
         <ion-card>
 
           <ion-card-header>
-            <ion-card-title>{{journal.title}}</ion-card-title>
+            <ion-card-title class="title">{{journal.title}}</ion-card-title>
             <ion-card-subtitle  color="secondary" >06:11</ion-card-subtitle>
           </ion-card-header>
 
@@ -23,7 +23,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-modal  #modal [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-modal  #modal [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]" trigger="open-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
